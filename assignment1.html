@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Temperature Converter Thing</title>
+</head>
+<body>
+
+<h1>Celsius/Fahrenheit/Kelvin Converter</h1>
+  <button onclick="convertTemp()">Convert Temperature</button>
+    <div id="Result"></div>
+
+<script>
+  function convertTemp() {
+    const celsius = parseFloat(prompt("Enter a temperature in Celsius:"));
+
+  if (isNaN(celsius)) {
+    document.getElementById("Result").textContent = "Valid Number Please.";
+      return;
+    }
+
+    const fahrenheit = (celsius * 9 / 5) + 32;
+    const kelvin = celsius + 273.15;
+
+    document.getElementById("Result").textContent =
+      `${celsius}°c = ${fahrenheit.toFixed(2)}°F = ${kelvin.toFixed(2)}K`;
+      }
+</script>
+
+</body>
+</html>

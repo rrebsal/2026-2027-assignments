@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Triangeli</title>
+</head>
+<body>
+
+<h1>Triangle Size Thingimabob</h1>
+
+<button onclick="checkTriangle()">Check Triangle</button>
+
+<div id="result"></div>
+
+<script>
+  function checkTriangle() {
+    const side1 = parseFloat(prompt("Enter a number for side 1:"));
+    const side2 = parseFloat(prompt("Enter a number for side 2:"));
+    const side3 = parseFloat(prompt("Enter a number for side 3:"));
+
+    const result = document.getElementById("result");
+
+    if (isNaN(side1) || isNaN(side2) || isNaN(side3)) {
+      result.textContent = "Enter a number.";
+      return;
+    }
+
+    if (side1 + side2 <= side3 ||
+        side1 + side3 <= side2 ||
+        side2 + side3 <= side1) {
+      result.textContent = "This is not a triangle.";
+      return;
+    }
+
+    let triangleType;
+
+    if (side1 === side2 && side2 === side3) {
+      triangleType = "Equilateral";
+    } else if (side1 === side2 || side1 === side3 || side2 === side3) {
+      triangleType = "Isosceles";
+    } else {
+      triangleType = "Scalene";
+    }
+
+    result.textContent =
+      `Sides ${side1}, ${side2}, ${side3} ${triangleType} triangle.`;
+  }
+</script>
+
+</body>
+</html>
